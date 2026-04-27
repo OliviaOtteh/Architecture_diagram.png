@@ -4,25 +4,22 @@
 >
 > NEXUS processes, stores, and transmits sensitive health information including **Protected Health Information (PHI)** and **Personally Identifiable Information (PII)**, making security and compliance a critical priority.
 
----
 
 ## System Boundary Diagram
 
 ![NEXUS EHR System Boundary Diagram](./architecture-diagram.png)
 
----
 
 ## Architecture Overview
 
 The NEXUS system is deployed across **three distinct security zones**, reflecting a hybrid cloud and on-premises model.
 
----
+
 
 ### Zone 1 — Internet Zone (External Boundary)
 
 The untrusted public internet boundary. External users — including patients and remote clinicians — initiate **HTTPS traffic** to access NEXUS via a patient portal or clinical interface. No PHI exists in this zone; it is purely a transit path.
 
----
 
 ### Zone 2 — AWS Cloud Zone (Application & Security Layer)
 
@@ -45,7 +42,6 @@ Traffic flow: `Internet → Shield → WAF → ALB → Firewall/SG → Port 443`
 - **Amazon S3** — long-term encrypted storage for documents, attachments, and PHI archives
 - No inbound internet path — isolated cold-storage boundary
 
----
 
 ### Zone 3 — On-Premises Hospital Zone (Data & Compliance Layer)
 
@@ -68,7 +64,6 @@ Connected to AWS via a **Secure VPN Tunnel** — PHI is never transmitted over t
 | Nurses' Tablets | Bedside charting, medication records |
 | Medical IoT Devices | Vital signs capture fed into patient records |
 
----
 
 ## Security & Compliance Controls
 
@@ -84,9 +79,8 @@ Connected to AWS via a **Secure VPN Tunnel** — PHI is never transmitted over t
 | DDoS Protection | AWS Shield |
 | WAF | Application-layer attack filtering |
 
----
 
-## Typical Clinical Data Flow
+##  Data Flow
 
 > A clinician opens a patient record from their laptop:
 
@@ -97,7 +91,7 @@ Connected to AWS via a **Secure VPN Tunnel** — PHI is never transmitted over t
 5. Record returned over encrypted path — PHI never exposed
 6. Access event logged to **Audit Server** → forwarded to **SIEM**
 
----
+
 
 ## Tech Stack
 
@@ -106,7 +100,6 @@ Connected to AWS via a **Secure VPN Tunnel** — PHI is never transmitted over t
 ![HIPAA](https://img.shields.io/badge/Compliance-HIPAA-green)
 ![VPN](https://img.shields.io/badge/Network-VPN%20Tunnel-lightgrey)
 
----
 
 ## Author
 
