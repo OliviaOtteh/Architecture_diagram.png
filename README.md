@@ -103,4 +103,4 @@ Connected to AWS via a **Secure VPN Tunnel** — PHI is never transmitted over t
 
 ## Author
 
-**[Chioma Otteh]** — [github.com/OliviaOtteh](https://github.com/OliviaOtteh/OliviaOtteh)
+**Chioma Otteh** — [github.com/OliviaOtteh](https://github.com/OliviaOtteh/OliviaOtteh)
